@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ngai Tauira | Admin Panel</title>
+	<link rel="stylesheet" href="font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/admin-panel.css">
+</head>
+	<body>
+		<nav id="navigation">
+			<ul id="admin-panel">
+				<li><a href="#">Pages <i class="fa fa-caret-down"></i></a>
+					<ul>
+						<li><a href="#">Create Page</a></li>
+						<li><a href="#">Edit Page</a></li>
+						<li><a href="#">Re-arrange Pages</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Events <i class="fa fa-caret-down"></i></a>
+					<ul>
+						<li><a href="#">Create Event</a></li>
+						<li><a href="#">Edit Event</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Dynamic Content <i class="fa fa-caret-down"></i></a>
+					<ul>
+						<li><a href="#">Splash Page</a></li>
+						<li><a href="#">Navigation</a></li>
+						<li><a href="#">Footer</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Settings <i class="fa fa-caret-down"></i></a>
+					<ul>
+						<li><a href="#">Create Account</a></li>
+						<li><a href="#">Change Password</a></li>
+						<li><a href="#">Delete User</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+		<div class="container">
+			<div class="page">
+				<div class="contents">
+					<h2>Create a page</h2>
+					<hr>
+					<form action="" method="post">
+						<div class="three">
+							<input type="text" name="title" id="title" placeholder="He aha te taitara?">
+							<textarea name="content" id="content" cols="30" rows="20" placeholder="He aha te korero?"></textarea>
+							<div class="full">
+								<label for="image" class="image-upload"><i class="fa fa-plus"></i></label>
+								<input type="file" name="image" id="image">
+								<label for="image" class="image-upload"><i class="fa fa-plus"></i></label>
+								<input type="file" name="image" id="image">
+								<label for="image" class="image-upload"><i class="fa fa-plus"></i></label>
+								<input type="file" name="image" id="image">
+								<label for="image" class="image-upload"><i class="fa fa-plus"></i></label>
+								<input type="file" name="image" id="image">
+								<label for="image" class="image-upload"><i class="fa fa-plus"></i></label>
+								<input type="file" name="image" id="image">
+								<label for="image" class="image-upload"><i class="fa fa-plus"></i></label>
+								<input type="file" name="image" id="image">
+								<label for="image" class="image-upload"><i class="fa fa-plus"></i></label>
+								<input type="file" name="image" id="image">
+							</div>
+							<div class="full">
+								<fieldset>
+									<legend>Location</legend>
+									<div class="half">
+										<div class="options">
+											<label for="start-date">Start Date: </label>
+											<input type="date" name="start-date" id="start-date">
+										</div>
+										<div class="options">
+											<label for="end-date">End Date: </label>
+											<input type="date" name="end-date" id="end-date">
+										</div>
+									</div>
+									<div class="half">
+										<div class="options">
+											<label for="time">Start Time: </label>
+											<input type="time" name="start-time" id="start-time">
+										</div>
+										<div class="options">
+											<label for="time">End Time: </label>
+											<input type="time" name="end-time" id="end-time">
+										</div>
+									</div>
+									<div class="full">
+										<label for="date">Place: </label>
+										<input type="text" name="title" id="title" placeholder="Enter event title">
+										<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2997.927492654269!2d174.7449935154227!3d-41.2886824792733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d38b04ed3259b1f%3A0xe39054302dbd24d4!2s56+Duthie+St%2C+Karori%2C+Wellington+6012!5e0!3m2!1sen!2snz!4v1446016233152" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+						<div class="one">
+							<input type="submit" value="Publish">
+						</div>
+
+					</form>
+
+				</div>
+			</div>
+		</div>
+		
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/adminPanel.js"></script>
+	</body>
+</html>

@@ -1,0 +1,168 @@
+@import 'mixin';
+
+@mixin slider {
+  #slider {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    ul {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      height: 400px;
+      list-style: none;
+      li {
+        position: relative;
+        display: block;
+        float: left;
+        margin: 0;
+        padding: 0;
+        width: 680px;
+        height: 514px;
+        text-align: center;
+        line-height: 300px;
+        @include large {
+          width: 680px;
+        }
+        @include medium {
+          width: 500px;
+          height: 500px;
+        }
+        @include small {
+          max-width: 100%;
+          width: 360px;
+          height: 320px;
+
+        }
+      }
+    }
+    a.control_prev, a.control_next {
+      position: absolute;
+      top: 40%;
+      z-index: 999;
+      display: block;
+      padding: 4% 3%;
+      width: auto;
+      height: auto;
+      background-color: rgba(0,0,0,0.5);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+      cursor: pointer;
+      &:hover {
+        background-color: rgba(0,0,0,1);
+        -webkit-transition: all 0.2s ease;
+      }
+    }
+    a.control_prev {
+      border-radius: 0 2px 2px 0;
+    }
+    a.control_next {
+      right: 0;
+      border-radius: 2px 0 0 2px;
+    }
+  }
+}
+
+@mixin banner {
+  #slider {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    @include small {
+      height: 370px !important;
+    }
+    ul {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      height: 400px;
+      list-style: none;
+      li {
+        position: relative;
+        display: block;
+        float: left;
+        margin: 0;
+        padding: 0;
+        width: 1000px;
+        height: 400px;
+        text-align: center;
+        line-height: 300px;
+        @include large {
+          width: 750px;
+          height: 300px;
+        }
+        @include medium {
+          width: 500px;
+          height: 200px;
+        }
+        @include small {
+          width: auto;
+          height: auto;
+        }
+      }
+    }
+    a.control_prev, a.control_next {
+      position: absolute;
+      top: 40%;
+      z-index: 999;
+      display: block;
+      padding: 4% 3%;
+      width: auto;
+      height: auto;
+      background-color: rgba(0,0,0,0.5);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+      cursor: pointer;
+      &:hover {
+        background-color: rgba(0,0,0,1);
+        -webkit-transition: all 0.2s ease;
+      }
+    }
+    a.control_prev {
+      border-radius: 0 2px 2px 0;
+    }
+    a.control_next {
+      right: 0;
+      border-radius: 2px 0 0 2px;
+    }
+  }
+}
+
+@mixin sections {
+
+  .one, .two, .three, .four {
+    box-sizing: border-box;
+    float: left;
+    padding: 20px;
+  }
+  .full {
+    width: 100%;
+    float: left;
+    clear: both;
+    padding: 0 20px;
+    box-sizing:border-box;
+  }
+  .half {
+    width: 50%;
+    float: left;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  .one {
+    width: 25%;
+  }
+  .two {
+    width: 50%;
+  }
+  .three {
+    width: 75%;
+  }
+  .four {
+    width: 100%;
+  }
+  
+}

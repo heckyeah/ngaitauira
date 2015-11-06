@@ -1,0 +1,137 @@
+@import 'mixin';
+@import 'addons';
+
+// Basic Colours
+$yellow: 		#e2cd00;
+$white: 		#efefef;
+$gray: 			#dad8d6;
+$black:			#111;
+$text:			#333;
+$hover:			#167ac6;
+
+// Admin Panel Colours
+$background:	#a7a7a7;
+$border:		#cbcbcb;
+$panel-hover:	#bababa;
+
+@include reset;
+@include basictext;
+@include sections;
+@include inputs;
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+.toggle {display: block !important;}
+
+body { 
+	font-family: 'Open Sans', arial, sans-serif;
+	background-color: $background;
+	#navigation {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 200px;
+		height: 100%;
+		background-color: $gray;
+		overflow: auto;
+		ul {
+			li {
+				font-weight: bold;
+				a:link,
+				a:active,
+				a:visited {
+					display: block;
+					padding: 20px 20px;
+					text-decoration: none;
+					color: $text;
+					border-bottom: 1px solid $border;
+					font-size: 0.750em;
+					i {
+						float: right;
+					}
+				}
+				ul {
+					// display: none;
+					li {
+						font-weight: normal;
+						a:link,
+						a:visited,
+						a:active {
+							background-color: $border;
+							font-size: 0.750em;
+							border-top: 1px solid darken($border, 2%);
+							border-bottom: 1px solid lighten($border, 2%);
+							padding: 10px 20px;
+							&:hover {
+								background-color: darken($border, 5%);
+								border-top: 1px solid darken($border, 15%);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.container {
+		position: absolute;
+		top:0;
+		left:200px;
+		right: 0;
+		overflow: auto;
+		height: 100%;
+		.page {
+			position: relative;
+			width: 100%;
+			padding: 20px;
+			box-sizing: border-box;
+			.contents {
+				background-color: $white;
+				padding: 0px;
+				box-sizing: border-box;
+				@include clearfix;
+				h2 {
+					padding: 20px;
+					color: $text;
+				}
+				hr {
+					border-color: $gray;
+					margin:0;
+				}
+				.image-upload {
+					width: 100px;
+					height: 100px;
+					text-align: center;
+					line-height: 100px;
+					border: 1px solid $gray;
+					color: $gray;
+					border-radius: 3px;
+					transition: 0.3s all;
+					font-size: 1.5em;
+					margin: 0 10px 20px 10px;
+					&:hover {
+						transition: 0.3s all;
+						color: $hover;
+						border-color: $hover;
+					}
+				}
+				fieldset {
+					padding: 20px;
+					margin: 0;
+					border: 1px solid $gray;
+					legend {
+						padding: 10px;
+					}
+					iframe {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
