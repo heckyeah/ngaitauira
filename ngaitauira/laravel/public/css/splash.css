@@ -1,0 +1,249 @@
+/* Resets the css of the page */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+h1 {
+  font-size: 2.25em; }
+
+h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+  padding: 0; }
+  @media only screen and (max-width: 1020px) {
+    h2 {
+      font-size: 1.125em; } }
+
+h3 {
+  font-size: 1.125em;
+  font-weight: 600;
+  padding: 0 0 5px 0; }
+
+p {
+  font-size: 0.750em;
+  line-height: 1.4;
+  padding: 0 0 10px 0; }
+
+hr {
+  border: none;
+  border-bottom: 2px solid #e2cd00;
+  margin-bottom: 10px; }
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+.overflow {
+  overflow: hidden; }
+
+body, html {
+  width: 100%;
+  height: 100%; }
+
+body {
+  background: #111 url("../img/splash/background.jpg") top center;
+  background-size: cover;
+  font-family: 'Open Sans', arial, sans-serif; }
+  body .wrapper {
+    width: 100%;
+    background-image: url("../img/layout/grid.png"); }
+    body .wrapper:after {
+      content: ' ';
+      clear: both;
+      display: table; }
+    body .wrapper #enter {
+      position: fixed;
+      top: 50%;
+      left: 1em;
+      right: 1em;
+      margin-top: -257px; }
+      @media only screen and (max-width: 775px) {
+        body .wrapper #enter {
+          position: static;
+          top: 0;
+          margin: 0 auto;
+          left: 0;
+          right: 0; } }
+      body .wrapper #enter #slider {
+        position: relative;
+        overflow: hidden;
+        margin: 0 auto; }
+        body .wrapper #enter #slider ul {
+          position: relative;
+          margin: 0;
+          padding: 0;
+          height: 400px;
+          list-style: none; }
+          body .wrapper #enter #slider ul li {
+            position: relative;
+            display: block;
+            float: left;
+            margin: 0;
+            padding: 0;
+            width: 680px;
+            height: 514px;
+            text-align: center;
+            line-height: 300px; }
+            @media only screen and (max-width: 1020px) {
+              body .wrapper #enter #slider ul li {
+                width: 680px; } }
+            @media only screen and (max-width: 775px) {
+              body .wrapper #enter #slider ul li {
+                width: 500px;
+                height: 500px; } }
+            @media only screen and (max-width: 520px) {
+              body .wrapper #enter #slider ul li {
+                max-width: 100%;
+                width: 360px;
+                height: 320px; } }
+        body .wrapper #enter #slider a.control_prev, body .wrapper #enter #slider a.control_next {
+          position: absolute;
+          top: 40%;
+          z-index: 999;
+          display: block;
+          padding: 4% 3%;
+          width: auto;
+          height: auto;
+          background-color: rgba(0, 0, 0, 0.5);
+          color: #fff;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 18px;
+          cursor: pointer; }
+          body .wrapper #enter #slider a.control_prev:hover, body .wrapper #enter #slider a.control_next:hover {
+            background-color: black;
+            -webkit-transition: all 0.2s ease; }
+        body .wrapper #enter #slider a.control_prev {
+          border-radius: 0 2px 2px 0; }
+        body .wrapper #enter #slider a.control_next {
+          right: 0;
+          border-radius: 2px 0 0 2px; }
+      body .wrapper #enter #enter-button {
+        position: absolute;
+        top: 300px;
+        width: 100%; }
+        body .wrapper #enter #enter-button a:link,
+        body .wrapper #enter #enter-button a:visited,
+        body .wrapper #enter #enter-button a:active {
+          display: block;
+          background-color: #e2cd00;
+          margin: 0 auto;
+          width: 200px;
+          text-align: center;
+          padding: 10px 40px;
+          text-decoration: none;
+          color: #333;
+          text-transform: uppercase;
+          transition: all 0.2s; }
+          @media only screen and (max-width: 520px) {
+            body .wrapper #enter #enter-button a:link,
+            body .wrapper #enter #enter-button a:visited,
+            body .wrapper #enter #enter-button a:active {
+              width: 100%;
+              box-sizing: border-box; } }
+          body .wrapper #enter #enter-button a:link:hover,
+          body .wrapper #enter #enter-button a:visited:hover,
+          body .wrapper #enter #enter-button a:active:hover {
+            color: yellow;
+            background-color: #333;
+            transition: all 0.2s; }
+          body .wrapper #enter #enter-button a:link .maori,
+          body .wrapper #enter #enter-button a:visited .maori,
+          body .wrapper #enter #enter-button a:active .maori {
+            display: block;
+            font-size: 2.5em;
+            font-weight: 800; }
+          body .wrapper #enter #enter-button a:link .english,
+          body .wrapper #enter #enter-button a:visited .english,
+          body .wrapper #enter #enter-button a:active .english {
+            display: block;
+            font-size: 1em; }
+        body .wrapper #enter #enter-button #label {
+          width: 600px;
+          padding: 0 40px;
+          margin: 20px auto;
+          background-color: #e2cd00; }
+          body .wrapper #enter #enter-button #label:after {
+            content: ' ';
+            clear: both;
+            display: table; }
+          @media only screen and (max-width: 775px) {
+            body .wrapper #enter #enter-button #label {
+              width: 500px;
+              margin: 10px auto; } }
+          @media only screen and (max-width: 520px) {
+            body .wrapper #enter #enter-button #label {
+              width: 100%;
+              padding: 0 20px;
+              box-sizing: border-box; } }
+          body .wrapper #enter #enter-button #label .text {
+            float: left;
+            width: 530px; }
+            @media only screen and (max-width: 1020px) {
+              body .wrapper #enter #enter-button #label .text {
+                width: 80%; } }
+            body .wrapper #enter #enter-button #label .text h1 {
+              font-size: 4.775em;
+              font-weight: 800;
+              text-transform: uppercase;
+              color: #333;
+              padding: 40px 0 0 0; }
+              @media only screen and (max-width: 1020px) {
+                body .wrapper #enter #enter-button #label .text h1 {
+                  font-size: 3em; } }
+              @media only screen and (max-width: 520px) {
+                body .wrapper #enter #enter-button #label .text h1 {
+                  font-size: 2.6em; } }
+            body .wrapper #enter #enter-button #label .text h5 {
+              color: #333;
+              font-style: italic;
+              font-size: 1em; }
+              @media only screen and (max-width: 520px) {
+                body .wrapper #enter #enter-button #label .text h5 {
+                  font-size: 0.675em; } }
+          body .wrapper #enter #enter-button #label #logo {
+            float: left;
+            width: 70px;
+            padding: 20px 0; }
+            @media only screen and (max-width: 1020px) {
+              body .wrapper #enter #enter-button #label #logo {
+                width: 20%; } }

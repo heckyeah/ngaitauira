@@ -1,0 +1,54 @@
+<!-- resources/views/auth/register.blade.php -->
+
+<form method="POST" action="/admin/event/{{ $event->id }}/edit">
+    {!! csrf_field() !!}
+	<div class="full">
+		<input type="text" name="title" id="title" value="{{ $event->title }}">
+	</div>
+
+    <div class="full">
+        <textarea name="content" id="content" cols="30" rows="10">{{ $event->content }}</textarea>
+    </div>
+
+    <div class="options">
+		<label for="start_date">Start Date: </label>
+		<input type="date" name="start_date" id="start_date">
+	</div>
+	<div class="options">
+		<label for="end_date">End Date: </label>
+		<input type="date" name="end_date" id="end_date">
+	</div>
+
+	<div class="options">
+		<label for="time">Start Time: </label>
+		<input type="time" name="start_time" id="start-time">
+	</div>
+	<div class="options">
+		<label for="time">End Time: </label>
+		<input type="time" name="end_time" id="end-time">
+	</div>
+	<div>
+		<label for="number">Number</label>
+		<input type="text" name="number" id="number" value="{{ $location->number }}">
+	</div>
+	<div>
+		<label for="street">Street</label>
+		<input type="text" name="street" id="street" value="{{ $location->street }}">
+	</div>
+	<div>
+		<label for="suburb">Suburb</label>
+		<input type="text" name="suburb" id="suburb" value="{{ $location->suburb }}">
+	</div>
+	<div>
+		<label for="area">City</label>
+		<input type="text" name="area" id="area" value="{{ $location->area }}">
+	</div>
+	<div>
+		<label for="country">Country</label>
+		<input type="text" name="country" id="country" value="{{ $location->country }}">
+	</div>
+
+    <div>
+        <button type="submit">Register</button>
+    </div>
+</form>
