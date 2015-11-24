@@ -73,7 +73,12 @@ img {
   height: auto; }
 
 .overflow {
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative; }
+
+.modal-afx {
+  position: fixed;
+  display: block !important; }
 
 body {
   font-family: 'Open Sans', arial, sans-serif;
@@ -150,12 +155,13 @@ body {
       position: fixed;
       display: block !important; }
     body #middle .modal-background {
+      position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
       background-color: rgba(0, 0, 0, 0.8);
-      z-index: 1000;
+      z-index: 2000;
       display: none; }
       body #middle .modal-background .small {
         left: 0;
@@ -173,105 +179,100 @@ body {
       body #middle .modal-background .x-large {
         max-height: 80%;
         margin: 5% auto; }
-      body #middle .modal-background .button-modal {
-        position: absolute;
-        background-color: #fff;
+      body #middle .modal-background .modal {
+        position: relative;
         width: 100%;
-        max-width: 750px;
+        max-width: 1000px;
         box-sizing: border-box;
-        border-radius: 5px;
-        overflow: hidden;
-        margin: 0 auto; }
-        body #middle .modal-background .button-modal:after {
+        margin: 0 auto;
+        box-sizing: border-box;
+        height: 100%; }
+        body #middle .modal-background .modal:after {
           content: ' ';
           clear: both;
           display: table; }
-        body #middle .modal-background .button-modal .modal-heading {
-          padding: 20px 20px 10px 20px;
-          box-sizing: border-box;
-          width: 100%;
-          border-bottom: 1px solid #dad8d6; }
-          body #middle .modal-background .button-modal .modal-heading h3 {
-            color: #333; }
-          body #middle .modal-background .button-modal .modal-heading a:link,
-          body #middle .modal-background .button-modal .modal-heading a:active,
-          body #middle .modal-background .button-modal .modal-heading a:visited {
-            position: absolute;
-            display: block;
-            top: 15px;
-            right: 20px;
-            font-size: 1.5em;
-            color: #333;
-            text-decoration: none; }
-          body #middle .modal-background .button-modal .modal-heading a:hover {
-            color: red;
-            cursor: pointer; }
-        body #middle .modal-background .button-modal .modal-field {
-          overflow: auto;
-          height: 90%; }
-          body #middle .modal-background .button-modal .modal-field .section {
-            width: 100%;
-            float: left;
-            padding: 10px 20px;
-            box-sizing: border-box; }
-            body #middle .modal-background .button-modal .modal-field .section input,
-            body #middle .modal-background .button-modal .modal-field .section textarea {
-              max-width: 100%;
-              width: 100%;
-              box-sizing: border-box;
-              padding: 10px;
-              margin-bottom: 20px;
-              font-size: 0.875em;
-              border: 1px solid #dad8d6; }
-            body #middle .modal-background .button-modal .modal-field .section fieldset {
-              border: 1px solid #dad8d6;
-              margin-bottom: 20px;
-              box-sizing: border-box;
-              padding: 20px; }
-              body #middle .modal-background .button-modal .modal-field .section fieldset legend {
-                padding: 0 10px;
-                color: #333; }
-            body #middle .modal-background .button-modal .modal-field .section img {
-              width: auto !important;
-              height: auto !important;
-              max-width: 300px;
-              margin: 0 auto;
-              float: none !important;
-              margin-bottom: 20px; }
-            body #middle .modal-background .button-modal .modal-field .section .section-split {
-              width: 100%;
-              box-sizing: border-box; }
-              body #middle .modal-background .button-modal .modal-field .section .section-split iframe {
-                width: 100%; }
-              body #middle .modal-background .button-modal .modal-field .section .section-split .options {
-                width: 50%;
-                box-sizing: border-box;
-                padding: 0 10px 0 0;
-                float: left; }
-              body #middle .modal-background .button-modal .modal-field .section .section-split label {
-                margin-bottom: 5px;
-                font-size: 0.875em;
-                color: #333;
+        body #middle .modal-background .modal .modal-field {
+          position: fixed;
+          margin: auto;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          width: 1000px;
+          height: 600px;
+          border-radius: 3px; }
+          body #middle .modal-background .modal .modal-field:after {
+            content: ' ';
+            clear: both;
+            display: table; }
+          body #middle .modal-background .modal .modal-field .section-1 {
+            width: 100%; }
+            body #middle .modal-background .modal .modal-field .section-1:after {
+              content: ' ';
+              clear: both;
+              display: table; }
+            body #middle .modal-background .modal .modal-field .section-1 #gallery-disp, body #middle .modal-background .modal .modal-field .section-1 #map {
+              position: relative;
+              overflow: hidden;
+              margin: 0 auto; }
+              body #middle .modal-background .modal .modal-field .section-1 #gallery-disp ul, body #middle .modal-background .modal .modal-field .section-1 #map ul {
+                position: relative;
+                margin: 0;
+                padding: 0;
+                height: 600px;
+                list-style: none; }
+                body #middle .modal-background .modal .modal-field .section-1 #gallery-disp ul li, body #middle .modal-background .modal .modal-field .section-1 #map ul li {
+                  position: relative;
+                  display: flex;
+                  align-items: center;
+                  float: left;
+                  margin: 0;
+                  padding: 0;
+                  width: 1000px;
+                  height: 600px;
+                  text-align: center;
+                  line-height: 300px; }
+                  @media only screen and (max-width: 1020px) {
+                    body #middle .modal-background .modal .modal-field .section-1 #gallery-disp ul li, body #middle .modal-background .modal .modal-field .section-1 #map ul li {
+                      width: 680px; } }
+                  @media only screen and (max-width: 775px) {
+                    body #middle .modal-background .modal .modal-field .section-1 #gallery-disp ul li, body #middle .modal-background .modal .modal-field .section-1 #map ul li {
+                      width: 500px;
+                      height: 500px; } }
+                  @media only screen and (max-width: 520px) {
+                    body #middle .modal-background .modal .modal-field .section-1 #gallery-disp ul li, body #middle .modal-background .modal .modal-field .section-1 #map ul li {
+                      max-width: 100%;
+                      width: 360px;
+                      height: 320px; } }
+                  body #middle .modal-background .modal .modal-field .section-1 #gallery-disp ul li img, body #middle .modal-background .modal .modal-field .section-1 #map ul li img {
+                    max-height: 100%;
+                    display: block;
+                    margin: 0 auto; }
+                  body #middle .modal-background .modal .modal-field .section-1 #gallery-disp ul li iframe, body #middle .modal-background .modal .modal-field .section-1 #map ul li iframe {
+                    width: 100% !important;
+                    height: 100% !important; }
+              body #middle .modal-background .modal .modal-field .section-1 #gallery-disp a.gallery_prev, body #middle .modal-background .modal .modal-field .section-1 #gallery-disp a.gallery_next, body #middle .modal-background .modal .modal-field .section-1 #map a.gallery_prev, body #middle .modal-background .modal .modal-field .section-1 #map a.gallery_next {
+                position: absolute;
+                top: 40%;
+                z-index: 999;
                 display: block;
-                float: left;
-                width: 100%; }
-              body #middle .modal-background .button-modal .modal-field .section .section-split .image-upload {
-                width: 100px;
-                height: 100px;
-                text-align: center;
-                line-height: 100px;
-                border: 1px solid #dad8d6;
-                color: #dad8d6;
-                border-radius: 3px;
-                transition: 0.3s all;
-                margin: 10px 0;
-                font-size: 1.5em; }
-                body #middle .modal-background .button-modal .modal-field .section .section-split .image-upload:hover {
-                  transition: 0.3s all;
-                  color: #167ac6;
-                  border-color: #167ac6; }
-              body #middle .modal-background .button-modal .modal-field .section .section-split input[type="file"] {
-                display: none; }
+                padding: 4% 3%;
+                width: auto;
+                height: auto;
+                background-color: rgba(0, 0, 0, 0.5);
+                color: #fff;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 18px;
+                cursor: pointer; }
+                body #middle .modal-background .modal .modal-field .section-1 #gallery-disp a.gallery_prev:hover, body #middle .modal-background .modal .modal-field .section-1 #gallery-disp a.gallery_next:hover, body #middle .modal-background .modal .modal-field .section-1 #map a.gallery_prev:hover, body #middle .modal-background .modal .modal-field .section-1 #map a.gallery_next:hover {
+                  background-color: black;
+                  -webkit-transition: all 0.2s ease; }
+              body #middle .modal-background .modal .modal-field .section-1 #gallery-disp a.gallery_prev, body #middle .modal-background .modal .modal-field .section-1 #map a.gallery_prev {
+                border-radius: 0 2px 2px 0; }
+              body #middle .modal-background .modal .modal-field .section-1 #gallery-disp a.gallery_next, body #middle .modal-background .modal .modal-field .section-1 #map a.gallery_next {
+                right: 0;
+                border-radius: 2px 0 0 2px; }
   body #bottom {
     background: #111 url("../img/layout/border-pattern.jpg") repeat-x top;
     padding: 45px 0 20px 0; }
@@ -488,6 +489,23 @@ body {
         position: relative;
         overflow: hidden;
         margin: 0 auto; }
+        body .container #banner #slider h1 {
+          font-size: 4em;
+          padding: 150px 0 10px 0;
+          text-align: center;
+          color: #e2cd00;
+          font-weight: 900;
+          text-transform: uppercase; }
+        body .container #banner #slider p {
+          font-size: 1em;
+          margin: 10px auto 100px auto;
+          text-align: center;
+          background-color: #e2cd00;
+          color: #333;
+          font-weight: 700;
+          padding: 10px;
+          display: block;
+          width: 50%; }
         @media only screen and (max-width: 520px) {
           body .container #banner #slider {
             height: 370px !important;
@@ -697,6 +715,23 @@ body {
         box-sizing: border-box;
         width: 100%;
         padding: 20px; }
+        body .container aside .widget-default #map-button {
+          border: none;
+          background-color: transparent;
+          padding: 0;
+          width: 100%; }
+        body .container aside .widget-default #gallery-button {
+          border: none;
+          background-color: #e2cd00;
+          padding: 10px 0;
+          width: 100%;
+          font-size: 1em;
+          border-radius: 3px; }
+          body .container aside .widget-default #gallery-button:hover {
+            color: #e2cd00;
+            cursor: pointer;
+            background-color: #333;
+            transition: all 0.2s; }
         body .container aside .widget-default h2 {
           color: #333; }
         body .container aside .widget-default img {
@@ -826,132 +861,6 @@ body#login {
 body#post {
   background-image: none;
   background-color: #555; }
-  body#post .modal-afx {
-    position: fixed;
-    display: block !important; }
-  body#post .modal-background {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
-    display: none; }
-    body#post .modal-background .small {
-      left: 0;
-      right: 0;
-      bottom: 50%; }
-      @media only screen and (max-width: 1020px) {
-        body#post .modal-background .small {
-          bottom: 35%; } }
-    body#post .modal-background .medium {
-      max-height: 30%;
-      margin: 5% auto; }
-    body#post .modal-background .large {
-      max-height: 55%;
-      margin: 5% auto; }
-    body#post .modal-background .x-large {
-      max-height: 80%;
-      margin: 5% auto; }
-    body#post .modal-background .button-modal {
-      position: absolute;
-      background-color: #fff;
-      width: 100%;
-      max-width: 750px;
-      box-sizing: border-box;
-      border-radius: 5px;
-      overflow: hidden;
-      margin: 0 auto; }
-      body#post .modal-background .button-modal:after {
-        content: ' ';
-        clear: both;
-        display: table; }
-      body#post .modal-background .button-modal .modal-heading {
-        padding: 20px 20px 10px 20px;
-        box-sizing: border-box;
-        width: 100%;
-        border-bottom: 1px solid #dad8d6; }
-        body#post .modal-background .button-modal .modal-heading h3 {
-          color: #333; }
-        body#post .modal-background .button-modal .modal-heading a:link,
-        body#post .modal-background .button-modal .modal-heading a:active,
-        body#post .modal-background .button-modal .modal-heading a:visited {
-          position: absolute;
-          display: block;
-          top: 15px;
-          right: 20px;
-          font-size: 1.5em;
-          color: #333;
-          text-decoration: none; }
-        body#post .modal-background .button-modal .modal-heading a:hover {
-          color: red;
-          cursor: pointer; }
-      body#post .modal-background .button-modal .modal-field {
-        overflow: auto;
-        height: 90%; }
-        body#post .modal-background .button-modal .modal-field .section {
-          width: 100%;
-          float: left;
-          padding: 10px 20px;
-          box-sizing: border-box; }
-          body#post .modal-background .button-modal .modal-field .section input,
-          body#post .modal-background .button-modal .modal-field .section textarea {
-            max-width: 100%;
-            width: 100%;
-            box-sizing: border-box;
-            padding: 10px;
-            margin-bottom: 20px;
-            font-size: 0.875em;
-            border: 1px solid #dad8d6; }
-          body#post .modal-background .button-modal .modal-field .section fieldset {
-            border: 1px solid #dad8d6;
-            margin-bottom: 20px;
-            box-sizing: border-box;
-            padding: 20px; }
-            body#post .modal-background .button-modal .modal-field .section fieldset legend {
-              padding: 0 10px;
-              color: #333; }
-          body#post .modal-background .button-modal .modal-field .section img {
-            width: auto !important;
-            height: auto !important;
-            max-width: 300px;
-            margin: 0 auto;
-            float: none !important;
-            margin-bottom: 20px; }
-          body#post .modal-background .button-modal .modal-field .section .section-split {
-            width: 100%;
-            box-sizing: border-box; }
-            body#post .modal-background .button-modal .modal-field .section .section-split iframe {
-              width: 100%; }
-            body#post .modal-background .button-modal .modal-field .section .section-split .options {
-              width: 50%;
-              box-sizing: border-box;
-              padding: 0 10px 0 0;
-              float: left; }
-            body#post .modal-background .button-modal .modal-field .section .section-split label {
-              margin-bottom: 5px;
-              font-size: 0.875em;
-              color: #333;
-              display: block;
-              float: left;
-              width: 100%; }
-            body#post .modal-background .button-modal .modal-field .section .section-split .image-upload {
-              width: 100px;
-              height: 100px;
-              text-align: center;
-              line-height: 100px;
-              border: 1px solid #dad8d6;
-              color: #dad8d6;
-              border-radius: 3px;
-              transition: 0.3s all;
-              margin: 10px 0;
-              font-size: 1.5em; }
-              body#post .modal-background .button-modal .modal-field .section .section-split .image-upload:hover {
-                transition: 0.3s all;
-                color: #167ac6;
-                border-color: #167ac6; }
-            body#post .modal-background .button-modal .modal-field .section .section-split input[type="file"] {
-              display: none; }
   body#post #navigation {
     position: fixed;
     top: 0;
@@ -985,7 +894,7 @@ body#post {
             text-decoration: none;
             background-color: #f2f2f2; }
       body#post nav dl dd {
-        display: none; }
+        display: block; }
         body#post nav dl dd ul {
           background-color: #333; }
           body#post nav dl dd ul li a {
@@ -1287,3 +1196,127 @@ body#post {
         margin-top: 10px; }
         body#post #post-module .post-module-container button:hover {
           background-color: #2d2d2d; }
+
+.modal-afx {
+  position: fixed;
+  display: flex !important; }
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: none; }
+  .modal-background .button-modal {
+    background-color: #fff;
+    width: 100%;
+    max-width: 750px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin: 0 auto; }
+    .modal-background .button-modal:after {
+      content: ' ';
+      clear: both;
+      display: table; }
+    .modal-background .button-modal .modal-heading {
+      padding: 20px 20px 10px 20px;
+      box-sizing: border-box;
+      width: 100%;
+      border-bottom: 1px solid #dad8d6;
+      position: relative; }
+      .modal-background .button-modal .modal-heading h3 {
+        color: #333; }
+      .modal-background .button-modal .modal-heading a:link,
+      .modal-background .button-modal .modal-heading a:active,
+      .modal-background .button-modal .modal-heading a:visited {
+        position: absolute;
+        display: block;
+        top: 15px;
+        right: 20px;
+        font-size: 1.5em;
+        color: #333;
+        text-decoration: none; }
+      .modal-background .button-modal .modal-heading a:hover {
+        color: red;
+        cursor: pointer; }
+    .modal-background .button-modal .modal-field {
+      overflow: auto;
+      height: 90%; }
+      .modal-background .button-modal .modal-field .section {
+        width: 100%;
+        float: left;
+        padding: 10px 20px;
+        box-sizing: border-box; }
+        .modal-background .button-modal .modal-field .section input,
+        .modal-background .button-modal .modal-field .section textarea {
+          max-width: 100%;
+          width: 100%;
+          box-sizing: border-box;
+          padding: 10px;
+          margin-bottom: 20px;
+          font-size: 0.875em;
+          border: 1px solid #dad8d6; }
+        .modal-background .button-modal .modal-field .section fieldset {
+          border: 1px solid #dad8d6;
+          margin-bottom: 20px;
+          box-sizing: border-box;
+          padding: 20px; }
+          .modal-background .button-modal .modal-field .section fieldset legend {
+            padding: 0 10px;
+            color: #333; }
+        .modal-background .button-modal .modal-field .section img {
+          width: auto !important;
+          height: auto !important;
+          max-width: 300px;
+          margin: 0 auto;
+          float: none !important;
+          margin-bottom: 20px; }
+        .modal-background .button-modal .modal-field .section .section-split {
+          width: 100%;
+          box-sizing: border-box; }
+          .modal-background .button-modal .modal-field .section .section-split iframe {
+            width: 100%; }
+          .modal-background .button-modal .modal-field .section .section-split .options {
+            width: 50%;
+            box-sizing: border-box;
+            padding: 0 10px 0 0;
+            float: left; }
+          .modal-background .button-modal .modal-field .section .section-split label {
+            margin-bottom: 5px;
+            font-size: 0.875em;
+            color: #333;
+            display: block;
+            float: left;
+            width: 100%; }
+          .modal-background .button-modal .modal-field .section .section-split .image-upload {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            border: 1px solid #dad8d6;
+            color: #dad8d6;
+            border-radius: 3px;
+            transition: 0.3s all;
+            margin: 10px 0;
+            font-size: 1.5em; }
+            .modal-background .button-modal .modal-field .section .section-split .image-upload:hover {
+              transition: 0.3s all;
+              color: #167ac6;
+              border-color: #167ac6; }
+          .modal-background .button-modal .modal-field .section .section-split input[type="file"] {
+            display: none; }
+
+.error {
+  color: #fff;
+  border-radius: 3px;
+  background-color: #FF4343; }
+
+.message {
+  padding: 5px 10px;
+  box-sizing: border-box;
+  margin-bottom: 10px; }

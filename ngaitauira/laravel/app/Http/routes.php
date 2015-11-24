@@ -22,7 +22,6 @@ Route::get('admin', 'AdminController@index');
 
 // Admin page dynamic content routes...
 Route::get('admin/footer', 'FooterAdminController@index');
-Route::get('admin/navigation', 'NavigationAdminController@index');
 
 // Admin page event routes...
 Route::get('admin/event', 'EventAdminController@index');

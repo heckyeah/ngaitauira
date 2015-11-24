@@ -71,6 +71,6 @@
 	<script src="/js/jquery-1.11.3.min.js"></script>
 	<script src="/js/menu.js"></script>
 	<script src="/js/slider.js"></script>
-	<script src="/js/modal.js"></script>
+	<script src="/js/gallery.js"></script>
 </body>
 </html>

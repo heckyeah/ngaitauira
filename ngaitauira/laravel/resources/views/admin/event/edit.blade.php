@@ -11,15 +11,6 @@
 						<li><a href="/admin/event/">Edit Event</a></li>
 					</ul>
 				</dd>
-
-				<dt><a href="">Page</a></dt>
-				<dd>
-					<ul>
-						<li><a href="/admin/page/create">Create Page</a></li>
-						<li><a href="/admin/page/">Edit Page</a></li>
-					</ul>
-				</dd>
-
 				<dt><a href="">Dynamic Content</a></dt>
 				<dd>
 					<ul>
@@ -46,53 +37,64 @@
 		    {!! csrf_field() !!}
 			<div id="event_container">
 				@if ( Session::get('created') )
-			  	<p class="success">{{ Session::get('created') }} <a href="/event/{{ $event->id }}">Click here</a> to preview. <a href="" class="clear-message"><i class="fa fa-times"></i></a></p>
+				<p class="success">{{ Session::get('created') }} <a href="/event/{{ $event->id }}">Click here</a> to preview. <a href="" class="clear-message"><i class="fa fa-times"></i></a></p>
 				@endif
 				<div class="full">
 					<input type="text" name="title" id="title" value="{{ $event->title }}">
+					@if ( $errors->first('title') )<p class="error message">{{ $errors->first('title') }}</p>@endif
 				</div>
 
 			    <div class="full">
 					<textarea class="textarea" id="content" name="content" style="width: 100%; height: 400px">{{ $event->content }}</textarea>
+					@if ( $errors->first('content') )<p class="error message">{{ $errors->first('content') }}</p>@endif
 				</div>
 
 			    <div class="half">
 					<label for="start_date">Start Date: </label>
 					<input type="date" name="start_date" id="start_date" value="<?php echo str_replace('/','-',$event->start_date); ?>">
+					@if ( $errors->first('start_date') )<p class="error message">{{ $errors->first('start_date') }}</p>@endif
 				</div>
 				<div class="half">
 					<label for="end_date">End Date: </label>
 					<input type="date" name="end_date" id="end_date" value="<?php echo str_replace('/','-',$event->end_date); ?>">
+					@if ( $errors->first('end_date') )<p class="error message">{{ $errors->first('end_date') }}</p>@endif
 				</div>
 
 				<div class="half">
 					<label for="time">Start Time: </label>
 					<input type="time" name="start_time" id="start-time" value="{{ $event->start_time }}">
+					@if ( $errors->first('start_time') )<p class="error message">{{ $errors->first('start_time') }}</p>@endif			
 				</div>
 				<div class="half">
 					<label for="time">End Time: </label>
 					<input type="time" name="end_time" id="end-time" value="{{ $event->end_time }}">
+					@if ( $errors->first('end_time') )<p class="error message">{{ $errors->first('end_time') }}</p>@endif
 				</div>
 
 				<div class="quater">
 					<label for="number">Number</label>
 					<input type="text" name="number" id="number" value="<?php echo str_replace(',','', $location->number); ?>">
+					@if ( $errors->first('number') )<p class="error message">{{ $errors->first('number') }}</p>@endif
 				</div>
 				<div class="quater">
 					<label for="street">Street</label>
 					<input type="text" name="street" id="street" value="<?php echo str_replace(',','', $location->street); ?>">
+					@if ( $errors->first('street') )<p class="error message">{{ $errors->first('street') }}</p>@endif
 				</div>
 				<div class="quater">
 					<label for="suburb">Suburb</label>
 					<input type="text" name="suburb" id="suburb" value="<?php echo str_replace(',','', $location->suburb); ?>">
+					@if ( $errors->first('suburb') )<p class="error message">{{ $errors->first('suburb') }}</p>@endif
 				</div>
 				<div class="quater">
 					<label for="area">City</label>
 					<input type="text" name="area" id="area" value="<?php echo str_replace(',','', $location->area); ?>">
+					@if ( $errors->first('area') )<p class="error message">{{ $errors->first('area') }}</p>@endif
 				</div>
 				<div class="quater">
 					<label for="country">Country</label>
 					<input type="text" name="country" id="country" value="<?php echo str_replace(',','', $location->country); ?>">
+					@if ( $errors->first('country') )<p class="error message">{{ $errors->first('country') }}</p>@endif
 				</div>
 				
 
@@ -111,6 +113,7 @@
 							<input type="hidden" value="{{ csrf_token() }}">
 						</li>
 					</ul>
+					@if ( $errors->first('image') )<p class="error message">{{ $errors->first('image') }}</p>@endif	
 				</div>
 			</div>
 			<div id="post-module">

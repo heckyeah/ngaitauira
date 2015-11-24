@@ -107,6 +107,11 @@ body {
         position: relative;
         overflow: hidden;
         margin: 0 auto; }
+        body .wrapper #enter #slider h1 {
+          font-size: 4em;
+          padding: 150px 0;
+          text-align: center;
+          color: #e2cd00; }
         body .wrapper #enter #slider ul {
           position: relative;
           margin: 0;

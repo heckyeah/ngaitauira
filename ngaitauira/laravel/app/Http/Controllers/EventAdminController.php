@@ -59,6 +59,22 @@ class EventAdminController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title'=>'required|max:50',
+            'content'=>'required|max:10000',
+            'start_date'=>'date|before:tomorrow',
+            'end_date'=>'date|after:start_date',
+            'start_time'=>'date_format:h:i|before:end_time',
+            'end_time'=>'date_format:h:i|after:start_time',
+            'number'=>'max:12',
+            'street'=>'max:40',
+            'suburb'=>'max:40',
+            'area'=>'max:40',
+            'country'=>'max:30',
+            'image[]'=>'image',
+        ]);
+
+
         $location = new Location();
         $event = new Event();
 
@@ -79,7 +95,7 @@ class EventAdminController extends Controller
         $location->suburb       = $request->suburb;
         $location->area         = $request->area;
         $location->country      = $request->country;
-        $location->location_map = $request->number.'+'.$request->street.'+,'.$request->suburb.'+,'.$request->area.'+,'.$request->country;
+        $location->location_map = $request->number.'+'.$request->street.',+'.$request->suburb.',+'.$request->area.',+'.$request->country;
         $location->location_map = str_replace(' ','+',$location->location_map);
         $location->event_id     = $event->id;
 
@@ -183,6 +199,22 @@ class EventAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $this->validate($request, [
+            'title'=>'required|max:50',
+            'content'=>'required|max:10000',
+            'start_date'=>'date|before:end_date',
+            'end_date'=>'date|after:start_date',
+            'start_time'=>'date_format:H:i|before:end_time',
+            'end_time'=>'date_format:H:i|after:start_time',
+            'number'=>'max:12',
+            'street'=>'max:40',
+            'suburb'=>'max:40',
+            'area'=>'max:40',
+            'country'=>'max:30',
+            'image[]'=>'image',
+        ]);
+
         $event = Event::findOrFail($id);
         $location = Location::where('event_id', $id)->firstOrFail();
 
@@ -207,7 +239,7 @@ class EventAdminController extends Controller
         $location->suburb       = $request->suburb;
         $location->area         = $request->area;
         $location->country      = $request->country;
-        $location->location_map = $request->number.'+'.$request->street.'+,'.$request->suburb.'+,'.$request->area.'+,'.$request->country;
+        $location->location_map = $request->number.'+'.$request->street.',+'.$request->suburb.',+'.$request->area.',+'.$request->country;
         $location->location_map = str_replace(' ','+',$location->location_map);
         
         $location->save();
@@ -266,6 +298,7 @@ class EventAdminController extends Controller
         }  
 
         if ( isset($request->preview) ) {
+
             return redirect('/event/'.$id);
         } else {
             return redirect('/admin/event/'.$id.'/edit');

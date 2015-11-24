@@ -1,4 +1,4 @@
-jQuery(document).ready(function ($) {
+$(document).ready(function ($) {
   
 	var slideCount = $('#slider ul li').length;
 	var slideWidth = $('#slider ul li').width();

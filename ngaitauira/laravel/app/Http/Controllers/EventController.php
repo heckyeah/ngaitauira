@@ -20,7 +20,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::where('status', '1')->where('type', 'event')->get();
+        $events = Event::where('status', '1')->where('type', 'event')->orderBy('id', 'desc')->get();
         $images = Image::orderBy(\DB::raw('RAND()'))->take(4)->get();
 
         return view('event.index', compact('events', 'images', 'now'));

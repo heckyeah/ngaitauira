@@ -1,150 +1,263 @@
 @import 'mixin';
 
 @mixin modal {
-  .modal-afx { position: fixed; display:block !important;}
-    .modal-background {
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0,0,0,0.8);
-      z-index: 1000;
-      display:none;
-      .small {
-        left: 0;
-        right: 0;
-        bottom: 50%;
-        @include large {
-          bottom: 35%;
-        }
-      }
-      .medium {
-        max-height: 30%;
-        margin: 5% auto;
-      }
-      .large {
-        max-height: 55%;
-        margin: 5% auto;
-      }
-      .x-large {
-        max-height: 80%;
-        margin: 5% auto;
-      }
-      .button-modal {
-        position: absolute;
-        background-color: $white;
-        width: 100%;
-        max-width: 750px;
+  .modal-afx { position: fixed; display:flex !important;}
+  .modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    align-items: center;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 1000;
+    display:none;
+    .button-modal {
+      background-color: $white;
+      width: 100%;
+      max-width: 750px;
+      box-sizing: border-box;
+      border-radius: 5px;
+      margin: 0 auto;
+      @include clearfix;
+      .modal-heading {
+        padding: 20px 20px 10px 20px;
         box-sizing: border-box;
-        border-radius: 5px;
-        overflow: hidden;
-        margin: 0 auto;
-        @include clearfix;
-        .modal-heading {
-          padding: 20px 20px 10px 20px;
-          box-sizing: border-box;
-          width: 100%;
-          border-bottom: 1px solid $gray;
-          h3 {  
-            color: $text;
-          }
-          a:link,
-          a:active,
-          a:visited {
-            position: absolute;
-            display: block;
-            top: 15px;
-            right: 20px;
-            font-size: 1.5em;
-            color: $text;
-            text-decoration: none;
-          }
-          a:hover {
-            color: red;
-            cursor: pointer;
-          }
+        width: 100%;
+        border-bottom: 1px solid $gray;
+        position: relative;
+        h3 {  
+          color: $text;
         }
-        .modal-field {
-          overflow: auto;
-          height: 90%;
-          .section {
+        a:link,
+        a:active,
+        a:visited {
+          position: absolute;
+          display: block;
+          top: 15px;
+          right: 20px;
+          font-size: 1.5em;
+          color: $text;
+          text-decoration: none;
+        }
+        a:hover {
+          color: red;
+          cursor: pointer;
+        }
+      }
+      .modal-field {
+        overflow: auto;
+        height: 90%;
+        .section {
+          width: 100%;
+          float: left;
+          padding: 10px 20px;
+          box-sizing: border-box;
+          input,
+          textarea {
+            max-width: 100%;
             width: 100%;
-            float: left;
-            padding: 10px 20px;
             box-sizing: border-box;
-            input,
-            textarea {
-              max-width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 0.875em;
+            border: 1px solid $gray;
+          }
+          fieldset {
+            border: 1px solid $gray;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            padding: 20px;
+            legend {
+              padding: 0 10px;
+              color: $text;
+            }
+          }
+          img {
+            width: auto !important;
+            height: auto !important;
+            max-width: 300px;
+            margin: 0 auto;
+            float: none !important;
+            margin-bottom: 20px;
+          }
+          .section-split {
+            width: 100%;
+            box-sizing: border-box;
+            iframe {
               width: 100%;
+            }
+            .options {
+              width: 50%;
               box-sizing: border-box;
-              padding: 10px;
-              margin-bottom: 20px;
+              padding: 0 10px 0 0;
+              float: left;
+            }
+            label {
+              margin-bottom: 5px;
               font-size: 0.875em;
-              border: 1px solid $gray;
-            }
-            fieldset {
-              border: 1px solid $gray;
-              margin-bottom: 20px;
-              box-sizing: border-box;
-              padding: 20px;
-              legend {
-                padding: 0 10px;
-                color: $text;
-              }
-            }
-            img {
-              width: auto !important;
-              height: auto !important;
-              max-width: 300px;
-              margin: 0 auto;
-              float: none !important;
-              margin-bottom: 20px;
-            }
-            .section-split {
+              color: $text;
+              display: block;
+              float: left;
               width: 100%;
-              box-sizing: border-box;
-              iframe {
-                width: 100%;
-              }
-              .options {
-                width: 50%;
-                box-sizing: border-box;
-                padding: 0 10px 0 0;
-                float: left;
-              }
-              label {
-                margin-bottom: 5px;
-                font-size: 0.875em;
-                color: $text;
-                display: block;
-                float: left;
-                width: 100%;
-              }
-              .image-upload {
-                width: 100px;
-                height: 100px;
-                text-align: center;
-                line-height: 100px;
-                border: 1px solid $gray;
-                color: $gray;
-                border-radius: 3px;
+            }
+            .image-upload {
+              width: 100px;
+              height: 100px;
+              text-align: center;
+              line-height: 100px;
+              border: 1px solid $gray;
+              color: $gray;
+              border-radius: 3px;
+              transition: 0.3s all;
+              margin: 10px 0;
+              font-size: 1.5em;
+              &:hover {
                 transition: 0.3s all;
-                margin: 10px 0;
-                font-size: 1.5em;
-                &:hover {
-                  transition: 0.3s all;
-                  color: $hover;
-                  border-color: $hover;
-                }
+                color: $hover;
+                border-color: $hover;
               }
-              input[type="file"] {
-                display: none;
-              }
+            }
+            input[type="file"] {
+              display: none;
             }
           }
         }
       }
     }
+  }
+}
+
+@mixin event-modal {
+  .modal-afx { position: fixed; display:block !important;}
+  .modal-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 2000;
+    display:none;
+    .small {
+      left: 0;
+      right: 0;
+      bottom: 50%;
+      @include large {
+        bottom: 35%;
+      }
+    }
+    .medium {
+      max-height: 30%;
+      margin: 5% auto;
+    }
+    .large {
+      max-height: 55%;
+      margin: 5% auto;
+    }
+    .x-large {
+      max-height: 80%;
+      margin: 5% auto;
+    }
+    .modal {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      box-sizing: border-box;
+      margin: 0 auto;
+      box-sizing: border-box;
+      height: 100%;
+      @include clearfix;
+      .modal-field {
+        position: fixed;
+        margin: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 1000px;
+        height: 600px;
+        border-radius: 3px;
+        @include clearfix;
+        .section-1 {
+          width: 100%;
+          @include clearfix;
+          #gallery-disp, #map {
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+            ul {
+              position: relative;
+              margin: 0;
+              padding: 0;
+              height: 600px;
+              list-style: none;
+              li {
+                position: relative;
+                display: flex;
+                align-items: center;
+                float: left;
+                margin: 0;
+                padding: 0;
+                width: 1000px;
+                height: 600px;
+                text-align: center;
+                line-height: 300px;
+                @include large {
+                  width: 680px;
+                }
+                @include medium {
+                  width: 500px;
+                  height: 500px;
+                }
+                @include small {
+                  max-width: 100%;
+                  width: 360px;
+                  height: 320px;
+                }
+                img {
+                  max-height: 100%;
+                  display: block;
+                  margin: 0 auto;
+                }
+                iframe {
+                  width: 100% !important;
+                  height: 100% !important;
+                }
+              }
+            }
+            a.gallery_prev, a.gallery_next {
+              position: absolute;
+              top: 40%;
+              z-index: 999;
+              display: block;
+              padding: 4% 3%;
+              width: auto;
+              height: auto;
+              background-color: rgba(0,0,0,0.5);
+              color: #fff;
+              text-decoration: none;
+              font-weight: 600;
+              font-size: 18px;
+              cursor: pointer;
+              &:hover {
+                background-color: rgba(0,0,0,1);
+                -webkit-transition: all 0.2s ease;
+              }
+            }
+            a.gallery_prev {
+              border-radius: 0 2px 2px 0;
+            }
+            a.gallery_next {
+              right: 0;
+              border-radius: 2px 0 0 2px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @mixin slider {
@@ -152,6 +265,12 @@
     position: relative;
     overflow: hidden;
     margin: 0 auto;
+    h1 {
+      font-size: 4em;
+      padding: 150px 0;
+      text-align: center;
+      color: $yellow;
+    }
     ul {
       position: relative;
       margin: 0;
@@ -217,6 +336,25 @@
     position: relative;
     overflow: hidden;
     margin: 0 auto;
+    h1 {
+      font-size: 4em;
+      padding: 150px 0 10px 0;
+      text-align: center;
+      color: $yellow;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    p {
+      font-size: 1em;
+      margin: 10px auto 100px auto;
+      text-align: center;
+      background-color: $yellow;
+      color: $text;
+      font-weight: 700;
+      padding: 10px;
+      display: block;
+      width:50%;
+    }
     @include small {
       height: 370px !important;
       width: 100% !important;

@@ -11,15 +11,6 @@
 						<li><a href="/admin/event/">Edit Event</a></li>
 					</ul>
 				</dd>
-
-				<dt><a href="">Page</a></dt>
-				<dd>
-					<ul>
-						<li><a href="/admin/page/create">Create Page</a></li>
-						<li><a href="/admin/page/">Edit Page</a></li>
-					</ul>
-				</dd>
-
 				<dt><a href="">Dynamic Content</a></dt>
 				<dd>
 					<ul>
@@ -36,7 +27,6 @@
 						<li><a href="/admin/account/delete">Delete User</a></li>
 					</ul>
 				</dd>
-
 			</dl>
 		</nav>
 	</div>

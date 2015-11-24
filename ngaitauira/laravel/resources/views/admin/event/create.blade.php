@@ -11,15 +11,6 @@
 						<li><a href="/admin/event/">Edit Event</a></li>
 					</ul>
 				</dd>
-
-				<dt><a href="">Page</a></dt>
-				<dd>
-					<ul>
-						<li><a href="/admin/page/create">Create Page</a></li>
-						<li><a href="/admin/page/">Edit Page</a></li>
-					</ul>
-				</dd>
-
 				<dt><a href="">Dynamic Content</a></dt>
 				<dd>
 					<ul>
@@ -36,61 +27,73 @@
 						<li><a href="/admin/account/delete">Delete User</a></li>
 					</ul>
 				</dd>
-
 			</dl>
 		</nav>
 	</div>
-
 	<div id="module">
 		<form method="POST" action="/admin/event" enctype="multipart/form-data">
 		    {!! csrf_field() !!}
 			<div id="event_container">
 				<div class="full">
-					<input type="text" name="title" id="title" placeholder="Title here..." value="{{ old('content') }}">
+					<input type="text" name="title" id="title" placeholder="Title here..." value="{{ old('title') }}">
+					@if ( $errors->first('title') )<p class="error message">{{ $errors->first('title') }}</p>@endif
 				</div>
-
 			    <div class="full">
 					<textarea class="textarea" id="content" name="content" style="width: 100%; height: 400px">{{ old('content') }}</textarea>
+					@if ( $errors->first('content') )<p class="error message">{{ $errors->first('content') }}</p>@endif
 				</div>
-
-			    <div class="half">
-					<label for="start_date">Start Date: </label>
-					<input type="date" name="start_date" id="start_date" value="<?php echo $dmy; ?>">
+				<div class="full no-space">
+				    <div class="half">
+						<label for="start_date">Start Date: </label>
+						<input type="date" name="start_date" id="start_date" value="<?php echo $dmy; ?>">
+						@if ( $errors->first('start_date') )<p class="error message">{{ $errors->first('start_date') }}</p>@endif
+					</div>
+				
+					<div class="half">
+						<label for="end_date">End Date: </label>
+						<input type="date" name="end_date" id="end_date" value="<?php echo $dmy; ?>">
+						@if ( $errors->first('end_date') )<p class="error message">{{ $errors->first('end_date') }}</p>@endif
+					</div>
 				</div>
-				<div class="half">
-					<label for="end_date">End Date: </label>
-					<input type="date" name="end_date" id="end_date" value="<?php echo $dmy; ?>">
+				<div class="full no-space">
+					<div class="half">
+						<label for="time">Start Time: </label>
+						<input type="time" name="start_time" id="start-time" value="{{ old('start_time') }}">
+						@if ( $errors->first('start_time') )<p class="error message">{{ $errors->first('start_time') }}</p>@endif
+					</div>
+					<div class="half">
+						<label for="time">End Time: </label>
+						<input type="time" name="end_time" id="end-time" value="{{ old('end_time') }}">
+						@if ( $errors->first('end_time') )<p class="error message">{{ $errors->first('end_time') }}</p>@endif
+					</div>
 				</div>
-
-				<div class="half">
-					<label for="time">Start Time: </label>
-					<input type="time" name="start_time" id="start-time" value="{{ old('start_time') }}">
+				<div class="full no-space">
+					<div class="quater">
+						<label for="number">Number</label>
+						<input type="text" name="number" id="number" value="{{ old('number') }}">
+						@if ( $errors->first('number') )<p class="error message">{{ $errors->first('number') }}</p>@endif
+					</div>
+					<div class="quater">
+						<label for="street">Street</label>
+						<input type="text" name="street" id="street" value="{{ old('street') }}">
+						@if ( $errors->first('street') )<p class="error message">{{ $errors->first('street') }}</p>@endif
+					</div>
+					<div class="quater">
+						<label for="suburb">Suburb</label>
+						<input type="text" name="suburb" id="suburb" value="{{ old('suburb') }}">
+						@if ( $errors->first('suburb') )<p class="error message">{{ $errors->first('suburb') }}</p>@endif
+					</div>
+					<div class="quater">
+						<label for="area">City</label>
+						<input type="text" name="area" id="area" value="{{ old('area') }}">
+						@if ( $errors->first('area') )<p class="error message">{{ $errors->first('area') }}</p>@endif
+					</div>
+					<div class="quater">
+						<label for="country">Country</label>
+						<input type="text" name="country" id="country" value="{{ old('country') }}">
+						@if ( $errors->first('country') )<p class="error message">{{ $errors->first('country') }}</p>@endif
+					</div>
 				</div>
-				<div class="half">
-					<label for="time">End Time: </label>
-					<input type="time" name="end_time" id="end-time" value="{{ old('end_time') }}">
-				</div>
-				<div class="quater">
-					<label for="number">Number</label>
-					<input type="text" name="number" id="number" value="{{ old('number') }}">
-				</div>
-				<div class="quater">
-					<label for="street">Street</label>
-					<input type="text" name="street" id="street" value="{{ old('street') }}">
-				</div>
-				<div class="quater">
-					<label for="suburb">Suburb</label>
-					<input type="text" name="suburb" id="suburb" value="{{ old('suburb') }}">
-				</div>
-				<div class="quater">
-					<label for="area">City</label>
-					<input type="text" name="area" id="area" value="{{ old('area') }}">
-				</div>
-				<div class="quater">
-					<label for="country">Country</label>
-					<input type="text" name="country" id="country" value="{{ old('country') }}">
-				</div>
-
 				<div class="full no-space">
 					<p class="full">Gallery Images:</p>
 					<ul class="uploaded">
@@ -106,27 +109,28 @@
 							<input type="hidden" value="{{ csrf_token() }}">
 						</li>
 					</ul>
+					@if ( $errors->first('image') )<p class="error message">{{ $errors->first('image') }}</p>@endif
 				</div>
 			</div>
 			<div id="post-module">
-					<div class="post-module-container">
-						<div class="full">
-							<select name="status">
-								<option selected value="1">Active</option>
-								<option value="0">Draft</option>
-								<option value="2">Delete</option>
-							</select>
-						</div>
-						<div class="full label-padding">
-					    	<input type="checkbox" name="preview" id="preview">
-							<label for="preview" class="checkbox">Check to view changes</label>
-						</div>
-					    <div class="full">
-					    	<input type="hidden" name="type" value="event">
-					        <button type="submit">Make Changes</button>
-					    </div>
+				<div class="post-module-container">
+					<div class="full">
+						<select name="status">
+							<option selected value="1">Active</option>
+							<option value="0">Draft</option>
+							<option value="2">Delete</option>
+						</select>
 					</div>
+					<div class="full label-padding">
+				    	<input type="checkbox" name="preview" id="preview">
+						<label for="preview" class="checkbox">Check to view changes</label>
+					</div>
+				    <div class="full">
+				    	<input type="hidden" name="type" value="event">
+				        <button type="submit">Make Changes</button>
+				    </div>
 				</div>
+			</div>
 		</form>
 	</div>
 <script src="/js/wysihtml5-0.3.0.js"></script>

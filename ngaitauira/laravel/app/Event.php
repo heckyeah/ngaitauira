@@ -8,7 +8,7 @@ class Event extends Model
 {
 
 	public $table = 'events';
-	public $timestamps = false;
+	public $timestamps = true;
 
 	/**
      * The attributes that are mass assignable.

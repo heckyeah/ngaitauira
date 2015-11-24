@@ -16,7 +16,9 @@ img {
 	height: auto;
 }
 
-.overflow { overflow: hidden; }
+.overflow { overflow: hidden; position: relative; }
+.modal-afx { position: fixed; display:block !important;}
+
 
 body { 
 	font-family: 'Open Sans', arial, sans-serif;
@@ -76,7 +78,7 @@ body {
 	#middle { 
 		background: $gray url('../img/layout/border-pattern.jpg') repeat-x top;
 		padding: 45px 0 20px 0;
-		@include modal;
+		@include event-modal;
 	}
 	#bottom {
 		background: $black url('../img/layout/border-pattern.jpg') repeat-x top;
@@ -407,6 +409,26 @@ body {
 				box-sizing: border-box;
 				width: 100%;
 				padding: 20px;
+				#map-button {
+					border: none;
+					background-color: transparent;
+					padding: 0;
+					width: 100%;
+				}
+				#gallery-button {
+					border: none;
+					background-color: $yellow;
+					padding: 10px 0;
+					width: 100%;
+					font-size: 1em;
+					border-radius: 3px;
+					&:hover {
+						color: #e2cd00;
+						cursor: pointer;
+						background-color: #333;
+						transition: all 0.2s;
+					}
+				}
 				h2 {
 					color: $text;
 				}
@@ -534,7 +556,6 @@ body#login {
 }body#post {
 	background-image: none;
 	background-color: #555;
-	@include modal;
 	#navigation {
 		position: fixed;
 		top: 0;
@@ -569,7 +590,7 @@ body#login {
 				}
 			}
 			dd {
-				display: none;
+				display: block;
 				ul {
 					background-color: #333;
 					li {
@@ -927,6 +948,17 @@ body#login {
 			}
 		}
 	}
+}
+@include modal;
+.error {
+	color: #fff;
+	border-radius: 3px;
+	background-color: #FF4343;
+}
+.message {
+	padding: 5px 10px;
+	box-sizing:border-box;
+	margin-bottom: 10px;
 }
 
 
