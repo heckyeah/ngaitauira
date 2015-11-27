@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-
 	public $table = 'events';
 	public $timestamps = true;
 
@@ -22,7 +21,7 @@ class Event extends Model
 	}
 
 	public function locations() {
-		return $this->belongsToMany('App\Location', 'locations');
+		return $this->hasOne('App\Location');
 	}
 
 	public function users() {
@@ -32,5 +31,4 @@ class Event extends Model
 	public function events() {
         return $this->hasMany('App\Event');
     }
-
 }

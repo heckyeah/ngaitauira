@@ -5,4 +5,7 @@ $(document).ready(function(){
 		// Switch between menu hide and menu show
 		$('#menu-links').toggle();
 	});
+	$('#menu, #menu-links').click( function( event ) {
+    	event.stopPropagation();
+	});
 });

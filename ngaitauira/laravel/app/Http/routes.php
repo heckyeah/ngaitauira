@@ -14,23 +14,7 @@
 Route::get('/', 'HomeController@index');
 Route::get('splash', 'SplashController@index');
 
-Route::get('event', 'EventController@index');
-Route::get('event/{id}', 'EventController@show');
-Route::get('event/{id}/edit', 'EventController@edit');
-
 Route::get('admin', 'AdminController@index');
-
-// Admin page dynamic content routes...
-Route::get('admin/footer', 'FooterAdminController@index');
-
-// Admin page event routes...
-Route::get('admin/event', 'EventAdminController@index');
-Route::get('admin/event/create', 'EventAdminController@create');
-Route::post('admin/event', 'EventAdminController@store');
-Route::get('admin/event/{id}/edit/', 'EventAdminController@edit');
-Route::post('admin/event/{id}/edit/', 'EventAdminController@update');
-Route::put('admin/event/{id}/delete/', 'EventAdminController@destroy');
-Route::get('admin/event/{id}/{image}/remove', 'EventAdminController@destroy');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
@@ -41,4 +25,15 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-// Administration Routes...
+// Admin page event routes...
+Route::get('admin/{type}', 'EventAdminController@index');
+Route::get('admin/{type}/create', 'EventAdminController@create');
+Route::post('admin/{type}', 'EventAdminController@store');
+Route::get('admin/{type}/{id}/edit/', 'EventAdminController@edit');
+Route::post('admin/{type}/{id}/edit/', 'EventAdminController@update');
+Route::put('admin/{type}/{id}/delete/', 'EventAdminController@destroy');
+Route::get('admin/{type}/{id}/{image}/remove', 'EventAdminController@destroy');
+
+// Event routes..
+Route::get('{type}', 'EventController@index');
+Route::get('{type}/{id}', 'EventController@show');

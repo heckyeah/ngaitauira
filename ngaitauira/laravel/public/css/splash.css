@@ -116,7 +116,6 @@ body {
           position: relative;
           margin: 0;
           padding: 0;
-          height: 400px;
           list-style: none; }
           body .wrapper #enter #slider ul li {
             position: relative;
@@ -137,9 +136,8 @@ body {
                 height: 500px; } }
             @media only screen and (max-width: 520px) {
               body .wrapper #enter #slider ul li {
-                max-width: 100%;
-                width: 360px;
-                height: 320px; } }
+                width: 300px;
+                height: auto; } }
         body .wrapper #enter #slider a.control_prev, body .wrapper #enter #slider a.control_next {
           position: absolute;
           top: 40%;

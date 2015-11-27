@@ -20,13 +20,13 @@
 				<h2>Events</h2>
 				<div class="tabs_container">
 				@foreach ( $events as $event )
-					<a class="tab" href="/event/{{ $event->id}}">
+					<a class="tab" href="/event/{{ $event->slug }}">
 						<span class="button">View Event</span>
 							<?php $first = true; ?>
 							@foreach ( $event->images as $image )
 								@if ( $first )
-								<img src="/img/site/thumbnail/{{ $image->image }}" alt="">
-								<?php $first = false; ?>
+									<img src="/img/site/thumbnail/{{ $image->image }}" alt="">
+									<?php $first = false; ?>
 								@else
 								@endif
 							@endforeach
@@ -39,4 +39,9 @@
 			</article>
 		</div>
 	</div>
+	@if(Auth::check())
+	<div class="edit-panel">
+		<a href="/admin/" id="full-edit"><i class="fa fa-pencil"></i><p>Admin Panel</p></a>
+	</div>
+	@endif
 @endsection

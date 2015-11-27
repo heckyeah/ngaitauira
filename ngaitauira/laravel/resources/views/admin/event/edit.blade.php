@@ -1,39 +1,8 @@
 @extends('admin_master')
 
-@section('main_content')
-	<div id="navigation">
-		<nav>
-			<dl class="accordion">
-				<dt><a href="">Event</a></dt>
-				<dd class="active">
-					<ul>
-						<li><a href="/admin/event/create">Create Event</a></li>
-						<li><a href="/admin/event/">Edit Event</a></li>
-					</ul>
-				</dd>
-				<dt><a href="">Dynamic Content</a></dt>
-				<dd>
-					<ul>
-						<li><a href="/admin/splash/">Splash Page</a></li>
-						<li><a href="/admin/navigation/">Navigation</a></li>
-						<li><a href="/admin/footer/">Footer</a></li>
-					</ul>
-				</dd>
-				<dt><a href="">Account Settings</a></dt>
-				<dd>
-					<ul>
-						<li><a href="/admin/account/create">Create Account</a></li>
-						<li><a href="/admin/account/modify">Modify Account</a></li>
-						<li><a href="/admin/account/delete">Delete User</a></li>
-					</ul>
-				</dd>
-
-			</dl>
-		</nav>
-	</div>
-	
+@section('main_content')	
 	<div id="module">
-		<form method="POST" action="/admin/event/{{ $event->id }}/edit" enctype="multipart/form-data">
+		<form method="POST" action="/admin/event/{{ $event->slug }}/edit" enctype="multipart/form-data">
 		    {!! csrf_field() !!}
 			<div id="event_container">
 				@if ( Session::get('created') )
@@ -73,27 +42,27 @@
 
 				<div class="quater">
 					<label for="number">Number</label>
-					<input type="text" name="number" id="number" value="<?php echo str_replace(',','', $location->number); ?>">
+					<input type="text" name="number" id="number" value="<?php echo str_replace(',','', $event->locations->number); ?>">
 					@if ( $errors->first('number') )<p class="error message">{{ $errors->first('number') }}</p>@endif
 				</div>
 				<div class="quater">
 					<label for="street">Street</label>
-					<input type="text" name="street" id="street" value="<?php echo str_replace(',','', $location->street); ?>">
+					<input type="text" name="street" id="street" value="<?php echo str_replace(',','', $event->locations->street); ?>">
 					@if ( $errors->first('street') )<p class="error message">{{ $errors->first('street') }}</p>@endif
 				</div>
 				<div class="quater">
 					<label for="suburb">Suburb</label>
-					<input type="text" name="suburb" id="suburb" value="<?php echo str_replace(',','', $location->suburb); ?>">
+					<input type="text" name="suburb" id="suburb" value="<?php echo str_replace(',','', $event->locations->suburb); ?>">
 					@if ( $errors->first('suburb') )<p class="error message">{{ $errors->first('suburb') }}</p>@endif
 				</div>
 				<div class="quater">
 					<label for="area">City</label>
-					<input type="text" name="area" id="area" value="<?php echo str_replace(',','', $location->area); ?>">
+					<input type="text" name="area" id="area" value="<?php echo str_replace(',','', $event->locations->area); ?>">
 					@if ( $errors->first('area') )<p class="error message">{{ $errors->first('area') }}</p>@endif
 				</div>
 				<div class="quater">
 					<label for="country">Country</label>
-					<input type="text" name="country" id="country" value="<?php echo str_replace(',','', $location->country); ?>">
+					<input type="text" name="country" id="country" value="<?php echo str_replace(',','', $event->locations->country); ?>">
 					@if ( $errors->first('country') )<p class="error message">{{ $errors->first('country') }}</p>@endif
 				</div>
 				
@@ -113,7 +82,7 @@
 							<input type="hidden" value="{{ csrf_token() }}">
 						</li>
 					</ul>
-					@if ( $errors->first('image') )<p class="error message">{{ $errors->first('image') }}</p>@endif	
+					@if ( $errors->first('image[]') )<p class="error message" style="clear:both;">{{ $errors->first('image[]') }}</p>@endif	
 				</div>
 			</div>
 			<div id="post-module">

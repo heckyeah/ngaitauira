@@ -22,7 +22,7 @@ class Location extends Model
 	}
 
 	public function locations() {
-		return $this->belongsTo('App\Location', 'locations');
+		return $this->belongsTo('App\Location');
 	}
 
 	public function users() {
@@ -30,7 +30,7 @@ class Location extends Model
 	}
 
 	public function events() {
-        return $this->hasMany('App\Event');
+        return $this->belongsTo('App\Event');
     }
 
 }

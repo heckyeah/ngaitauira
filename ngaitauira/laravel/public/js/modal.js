@@ -5,7 +5,7 @@ $(document).ready(function(){
 
 		if (id == 'quick-edit') {
 			var modal = 1;
-		} else if (id = 'cover-edit') {
+		} else if (id = 'delete') {
 			var modal = 0;
 		}
 

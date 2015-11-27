@@ -43,25 +43,12 @@
 			</div>
 		</div>
 
-		<div class="modal-background">
-			<div class="modal">
-				<div class="modal-field">
-					<div class="section-1">
-						<div id="map">
-							<ul>
-								<li><iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/undefined?&amp;destination={{ $location->location_map }}&amp;zoom=15&amp;key=AIzaSyAUnmehV5ga37UItmesKdLrmGwu3Tz_EHw" allowfullscreen></iframe></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
 		<!-- Modals End -->
 
 		<div class="container">
 			<article>
 				<h2>{{ $event->title }}</h2>
+				<div class="fb-share-button" data-href="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" ?>" data-layout="button"></div>
 				<hr>
 				<?php echo htmlspecialchars_decode( $event->content ); ?>
 			</article>
@@ -70,7 +57,6 @@
 				<div class="widget widget-default">
 					<h2>Location & Time</h2>
 					<hr>
-					<button id="map-button">
 						<picture>
 							<source 
 							media="(min-width: 1020px)"
@@ -88,16 +74,17 @@
 							src="https://maps.googleapis.com/maps/api/staticmap?size=315x150&amp;maptype=roadmap\&amp;markers=size:mid%7Ccolor:red%7C{{ $location->location_map }}&amp;zoom=15&amp;key=AIzaSyCWbvxqrJ3bZsQpCtETsUXVjwOqESXpAbA" 
 							alt="A map of {{ str_replace('+',' ', $location->location_map) }}">
 						</picture>
-					</button>
 					<table>
 						<tr>
 							<td>Date:</td>
 							<td>{{ $event->start_date }} - {{ $event->end_date }}</td>
 						</tr>
+						@if ( $event->start_time && $event->end_time )
 						<tr>
 							<td>Time:</td>
 							<td>{{ $event->start_time }} - {{ $event->end_time }}</td>
 						</tr>
+						@endif
 						<tr>
 							<td>Place:</td>
 							<td>
@@ -144,10 +131,15 @@
 			</aside>
 		</div>
 	</div>
+
 	@if(Auth::check())
-	<div class="edit-panel">
-		<a href="/admin/event/{{ $event->id }}/edit" id="full-edit"><i class="fa fa-pencil"></i><p>Edit Event</p></a>
-	</div>
+		<div class="edit-panel">
+			<a href="/admin/{{ $event->type }}/{{ $event->slug }}/edit" id="full-edit"><i class="fa fa-pencil"></i><p>Edit Page</p></a>
+			<a href="/admin/{{ $event->type }}/" id="full-edit"><i class="fa fa-pencil"></i><p>Show {{ $event->type }}s</p></a>
+			<a href="/admin/" id="full-edit"><i class="fa fa-pencil"></i><p>Admin Panel</p></a>
+		</div>
 	@endif
+
+
 
 @endsection

@@ -22,7 +22,7 @@ img {
 
 body { 
 	font-family: 'Open Sans', arial, sans-serif;
-	background: #111 url('../img/layout/background.jpg') top center;
+	background: #111 url('../img/layout/background.jpg') top center repeat-x;
 	.edit-panel {
 		position: fixed;
 		bottom: 20px;
@@ -102,13 +102,13 @@ body {
 		}
 		.category {
 			background-color: transparent;
-			width: 1020px;
 			@include clearfix;
 			h2 {
 				padding: 0 10px;
 			}
 			.tabs_container {
 				width: 100%;
+				@include clearfix;
 				a:link,
 				a:active,
 				a:visited {
@@ -123,6 +123,10 @@ body {
 					display: block;
 					float: left;
 					background-color: $white;
+					@include small {
+						width: 95%;
+
+					}
 					&:hover > span {
 						background-color: $text;
 						color: #fff;
@@ -359,6 +363,33 @@ body {
 				}
 			}
 		}
+		.staff-page {
+			width: 800px;
+			display: table-row;
+			@include large {
+				width: 600px;
+			}
+		}
+		.page-article {
+			float: none;
+			margin-right: 0;
+			margin: 0 auto 20px auto;
+			.video-container {
+				position:relative;
+				padding-bottom:56.25%;
+				padding-top:30px;
+				height:0;
+				overflow:hidden;
+				margin-bottom: 20px;
+				iframe, object, embed {
+					position:absolute;
+					top:0;
+					left:0;
+					width:100%;
+					height:100%;
+				}
+			}
+		}
 		article {
 			position: relative;
 			float: left;
@@ -368,6 +399,7 @@ body {
 			padding: 20px;
 			width: 625px;
 			background-color: $white;
+			@include clearfix;
 			@include large {
 				float: none;
 				margin: 0 auto 20px auto;
@@ -378,8 +410,26 @@ body {
 			}
 			h2 {
 				padding: 0 !important;
+				display: inline;
 			}
 			@include content-text;
+			.staff-display {
+				width: 33.3%;
+				float: left;
+				box-sizing: border-box;
+				padding: 30px 10px;
+				text-align: center;
+				@include medium {
+					padding: 10px;
+				}
+				@include small {
+					width: 50%;
+					padding: 10px;
+				}
+				img {
+					margin-bottom: 10px;
+				}
+			}
 		}
 		aside {
 			float: left;
@@ -520,9 +570,19 @@ body {
 			}
 		}
 	}
+	.staff {
+		width: 750px; 
+		@include medium {
+			width: 500px;
+		}
+		@include small {
+			width: 90%;
+		}
+	}
 }
 body#login {
-	background: #B2DEED;
+	background: #B2DEED url('http://images5.alphacoders.com/444/444509.jpg');
+	background-size: cover;
 	@include inputs;
 	.login_container {
 		position: absolute;
@@ -553,7 +613,8 @@ body#login {
 		    }
 	    }
 	}
-}body#post {
+}
+body#post {
 	background-image: none;
 	background-color: #555;
 	#navigation {
@@ -562,6 +623,10 @@ body#login {
 		left: 0;
 		width: 20%;
 		height: 100%;
+		@include medium {
+			width: 100%;
+			position: static;
+		}
 	}
 	nav {
 		width: 100%;
@@ -574,7 +639,9 @@ body#login {
 			background-color: #fefefe;
 			height: 100%;
 			box-sizing: border-box;
-			padding: 20px 0;
+			@include medium {
+				padding: 0;
+			}
 			dt {
 				display: block;
 				a {
@@ -616,6 +683,14 @@ body#login {
 		top: 0;
 		left: 20%;
 		width: 80%;
+		@include medium {
+			width: 95%;
+			margin: 0 auto;
+			position: static;
+		}
+	}
+	.container_full {
+		width: 97.75% !important;
 	}
 	#event_container {
 		width: 65%;
@@ -627,7 +702,26 @@ body#login {
 	    margin-top: 20px;
 	    margin-bottom: 20px;
 	    border-radius: 3px;
+	    @include medium {
+	    	margin-top: 0;
+	    	width: 100%;
+	    	margin-left: 0;
+	    }
 		@include clearfix;
+		.create-button {
+			padding: 10px 15px;
+			margin: 0 auto;
+			display: inline-block;
+			background-color: $text;
+			color: #fff;
+			border-radius: 5px;
+			margin-bottom: 10px;
+			text-decoration: none;
+			font-size: 0.875em;
+			&:hover {
+				background-color: #444;
+			}
+		}
 		table {
 			width: 98%;
 			margin: 0 auto;
@@ -638,21 +732,115 @@ body#login {
 				&:nth-child(odd) {
 					background-color:#eee;
 				}
+				.staff-td {
+					width: 100px;
+				}
 				td {
-					padding: 10px;
-					vertical-align: top;
-					&:first-child {
+					padding: 10px 15px;
+					vertical-align: middle;
+					&:last-child {
 						width: 100px;
+					}
+					p {
+						padding: 0;
+						margin: 0;
 					}
 					img {
 						display: block;
-						float: left;
-						width: 50px;
-						height: 50px;
 					}
 					a {
-						display: block;
+						display: inline-block;
 						margin-bottom: 10px;
+					}
+					.thumb {
+						box-sizing: border-box;
+						border: 1px solid #333;
+						border-radius: 3px;
+						width: 100px;
+					}
+					button {
+						padding: 10px 40px;
+						margin: 0;
+						font-size: 0.875em;
+					}
+					.edit {
+						background-color: #333;
+					    color: #fff;
+					    border: none;
+					    border-radius: 3px;
+					    padding: 10px 40px;
+						margin: 0;
+						width: 100%;
+						box-sizing: border-box;
+						margin: 5px 0;
+						text-align: center;
+						font-size: 0.875em;
+					}
+					.red {
+						background-color: red;
+						color: #fff;
+						text-align: center;
+						padding: 2px 5px;
+						width: 100%;
+						border-radius: 2px;
+					    display: block;
+					    box-sizing: border-box;
+					}
+					.green {
+						background-color: green;
+						color: #fff;
+						text-align: center;
+						padding: 2px 5px;
+						width: 100%;
+						border-radius: 2px;
+					    display: block;
+					    box-sizing: border-box;
+					}
+					div {
+						input[type="submit"] {
+							padding: 10px 5px;
+							width: 30%;
+							margin: 0 auto;
+							display: block;
+							background-color: $text;
+							color: #fff;
+							border-radius: 5px;
+							&:hover {
+								background-color: red;
+							}
+						}
+					}
+				}
+			}
+			@include medium {
+				tr {
+				    width: 50%;
+					float: left;
+					@include small {
+						width: 100%;
+					}
+					&:nth-child(odd) {
+						background-color: transparent;
+					}
+					&:first-child {
+						display: none;
+						width: auto;
+					}
+					td {
+						width: 100%;
+					    display: block;
+					    box-sizing: border-box;
+				        padding: 10px 15px;
+				        &:first-child {
+							width: 100%;
+						}
+						&:last-child {
+							width: 100%;
+						}
+					}
+					.thumb {
+						width: 100px;
+						margin: 0 auto;	
 					}
 				}
 			}
@@ -694,6 +882,9 @@ body#login {
 			float: left;
 			box-sizing: border-box;
 			padding: 0 10px;
+			@include small {
+				width: 100%;
+			}
 			input {
 				width: 98%;
 				padding: 5px 0 5px 2%;
@@ -704,6 +895,9 @@ body#login {
 			float: left;
 			box-sizing: border-box;
 			padding: 0 10px;
+			@include small {
+				width: 100%;
+			}
 			input {
 				width: 96%;
 				padding: 5px 0 5px 4%;
@@ -714,6 +908,9 @@ body#login {
 		}
 		.space {
 			padding-bottom: 20px;
+		}
+		.center {
+			text-align: center;
 		}
 		.checkbox {
 			display: inline;
@@ -759,7 +956,7 @@ body#login {
 			border-radius: 3px;
 			margin-top: 10px;
 			&:hover {
-				background-color: #2d2d2d;
+				background-color: #444;
 			}
 		}
 		.image-icon {
@@ -778,8 +975,8 @@ body#login {
 			&:hover {
 				cursor: pointer;
 				color: #fefefe;
-				border-color: #2d2d2d;
-				background-color: #2d2d2d;
+				border-color: #444;
+				background-color: #444;
 			}
 		}
 		.uploaded {
@@ -814,6 +1011,16 @@ body#login {
 						padding: 0;
 					}
 				}
+			}
+		}
+		.staff-member {
+			display: inline-block;
+			margin: 0 auto;
+			&:hover > img {
+				opacity: 0.5;
+			}
+			img {
+				display: block;
 			}
 		}
 		.image {
@@ -865,6 +1072,11 @@ body#login {
 		float: left;
 		margin-left: 1.25%;
 		@include clearfix;
+		@include medium {
+			margin-left: 0;
+			width: 100%;
+			margin-bottom: 20px;
+		}
 		.post-module-container {
 			box-sizing: border-box;
 			padding: 20px 10px;
@@ -874,6 +1086,10 @@ body#login {
 			width: 25%;
 			border-radius: 3px;
 			@include clearfix;
+			@include medium {
+				position: static;
+				width: 100%;
+			}
 			.full {
 				width: 100%;
 				float: left;
@@ -901,6 +1117,9 @@ body#login {
 			.checkbox {
 				display: inline;
 				padding-left: 5px;
+			}
+			.center {
+				text-align: center;
 			}
 			.label-padding {
 				padding: 3px 10px 10px 10px;
@@ -959,6 +1178,9 @@ body#login {
 	padding: 5px 10px;
 	box-sizing:border-box;
 	margin-bottom: 10px;
+}
+.fb_iframe_widget {
+	display: inline-block !important;
 }
 
 

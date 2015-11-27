@@ -1,35 +1,6 @@
 @extends('admin_master')
 
 @section('main_content')
-	<div id="navigation">
-		<nav>
-			<dl class="accordion">
-				<dt><a href="">Event</a></dt>
-				<dd class="active">
-					<ul>
-						<li><a href="/admin/event/create">Create Event</a></li>
-						<li><a href="/admin/event/">Edit Event</a></li>
-					</ul>
-				</dd>
-				<dt><a href="">Dynamic Content</a></dt>
-				<dd>
-					<ul>
-						<li><a href="/admin/splash/">Splash Page</a></li>
-						<li><a href="/admin/navigation/">Navigation</a></li>
-						<li><a href="/admin/footer/">Footer</a></li>
-					</ul>
-				</dd>
-				<dt><a href="">Account Settings</a></dt>
-				<dd>
-					<ul>
-						<li><a href="/admin/account/create">Create Account</a></li>
-						<li><a href="/admin/account/modify">Modify Account</a></li>
-						<li><a href="/admin/account/delete">Delete User</a></li>
-					</ul>
-				</dd>
-			</dl>
-		</nav>
-	</div>
 	<div id="module">
 		<form method="POST" action="/admin/event" enctype="multipart/form-data">
 		    {!! csrf_field() !!}
@@ -109,7 +80,7 @@
 							<input type="hidden" value="{{ csrf_token() }}">
 						</li>
 					</ul>
-					@if ( $errors->first('image') )<p class="error message">{{ $errors->first('image') }}</p>@endif
+					@if ( $errors->first('image[]') )<p class="error message" style="clear:both;">{{ $errors->first('image[]') }}</p>@endif
 				</div>
 			</div>
 			<div id="post-module">

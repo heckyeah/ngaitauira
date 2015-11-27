@@ -22,27 +22,7 @@
 	</div>
 	<div class="wrapper" id="middle">
 		<div id="modals-test" class="container">
-			<div class="modal-background">
-				<div class="modal">
-					<div class="modal-heading">
-						<h3>Cover Edit Post</h3>
-						<a href="#" class="close-modal"><i class="fa fa-times"></i></a>
-					</div>
-					<div class="modal-field">
-						<form action="index.html" method="post" novalidate>
-							<div class="section">
-								<fieldset>
-									<legend>Gallery</legend>
-									<div class="section-split">
-										<label for="image" class="image-upload"><i class="fa fa-plus"></i></label>
-										<input type="file" name="image" id="image">
-									</div>
-								</fieldset>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
+			
 			<div class="modal-background">
 				<div class="modal">
 					<div class="modal-heading">
@@ -95,33 +75,7 @@
 			<article>
 				<h2>To do list</h2>
 				<hr>
-				<h5>Event page</h5>
-				<ul>
-					<li>Add calender and time js script to the field</li>
-					<li>Need if staments added if the field isnt filled in dont add <b>[Done]</b></li>
-					<li>Add uploaded images option to the content area</li>
-					<li>Validate the input fields</li>
-					<li>Cover button to select images for slider <b>[Done]</b></li>
-					<li>Preview button <b>[Done]</b></li>
-					<li>Make buttons admin visible only</li>
-				</ul>
-				<h5>Post page</h5>
-				<ul>
-					<li>Copy what the event page does</li>
-				</ul>
-				<h5>Admin Panel</h5>
-				<ul>
-					<li>Add logout button</li>
-					<li>redesign the ui</li>
-				</ul>
-				<h5>Other</h5>
-				<ul>
-					<li>Make the admin panel pages use blade sincludes</li>
-					<li>Make splash page</li>
-					<li>Create footer edit</li>
-					<li>Account creation/modification pages</li>
-					<li>Delete users</li>
-				</ul>
+				
 
 
 			</article>
@@ -155,5 +109,11 @@
 			</aside>
 		</div>
 	</div>
+
+	@if(Auth::check())
+	<div class="edit-panel">
+		<a href="/admin/" id="full-edit"><i class="fa fa-pencil"></i><p>Admin Panel</p></a>
+	</div>
+	@endif
 
 @endsection
